@@ -1,5 +1,5 @@
 {
-  "name": "react-native-login-lpsfr",
+  "name": "react-native-login",
   "version": "0.0.1",
   "description": "login screen for react native updated from https://github.com/mmazzarolo/react-native-login-animation-example",
   "main": "Login.js",
