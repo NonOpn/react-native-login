@@ -117,9 +117,12 @@ const styles = StyleSheet.create({
 
 Login.propTypes = {
   env: PropTypes.string.isRequired,
-  source: PropTypes.shape({
-    uri: PropTypes.string
-  }).isRequired,
+  source: PropTypes.oneOfType([
+    PropTypes.shape({
+      uri: PropTypes.string
+    }),
+    PropTypes.number
+  ]).isRequired,
   api: PropTypes.shape({
     login: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
