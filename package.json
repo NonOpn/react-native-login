@@ -1,0 +1,34 @@
+{
+  "name": "react-native-login-lpsfr",
+  "version": "0.0.1",
+  "description": "login screen for react native updated from https://github.com/mmazzarolo/react-native-login-animation-example",
+  "main": "Login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NonOpn/react-native-login-lpsfr.git"
+  },
+  "keywords": [
+    "react-native",
+    "login"
+  ],
+  "author": {
+    "name": "Codlab",
+    "email": "kevin.leperf@nonopn.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/NonOpn/react-native-login-lpsfr/issues"
+  },
+  "homepage": "https://github.com/NonOpn/react-native-login-lpsfr#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-native": "^0.51.0",
+    "react-native-popup": "^0.6.1"
+  }
+}
