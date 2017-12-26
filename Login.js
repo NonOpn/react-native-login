@@ -19,10 +19,6 @@ export default class Login extends Component {
     isAppReady: false // Has the app completed the login animation?,
   }
 
-  _url = () => {
-    return this.props.api.env();
-  }
-
   /**
   * Two login function that waits 1000 ms and then authenticates the user succesfully.
   * In your real app they should be replaced with an API call to you backend.
@@ -30,7 +26,7 @@ export default class Login extends Component {
   _login = (username, password) => {
     this.setState({ isLoading: true })
 
-    this.props.api.login(this._url(), username, password)
+    this.props.api.login(username, password)
     .then(result => {
       this._message = JSON.stringify(result);
       this.setState({ isLoggedIn: true, isLoading: false, object: result });
@@ -44,7 +40,7 @@ export default class Login extends Component {
   _signup = (username, password, email) => {
     this.setState({ isLoading: true })
 
-    this.props.api.register(this._url(), username, email, password)
+    this.props.api.register(username, email, password)
     .then(result => {
       this.setState({ isLoggedIn: true, isLoading: false, object: result });
     })
