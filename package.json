@@ -1,6 +1,6 @@
 {
   "name": "react-native-login",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "login screen for react native updated from https://github.com/mmazzarolo/react-native-login-animation-example",
   "main": "Login.js",
   "scripts": {
