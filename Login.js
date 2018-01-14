@@ -28,8 +28,13 @@ export default class Login extends Component {
 
     this.props.api.login(username, password)
     .then(result => {
-      this._message = JSON.stringify(result);
-      this.setState({ isLoggedIn: true, isLoading: false, object: result });
+      const errorMessage = this.props.validate(result);
+      if(!errorMessage) {
+        this._message = JSON.stringify(result);
+        this.setState({ isLoggedIn: true, isLoading: false, object: result });
+      } else {
+        this.showAlert(errorMessage);
+      }
     })
     .catch(err => {
       this.setState({ isLoggedIn: false, isLoading: false });
@@ -42,7 +47,12 @@ export default class Login extends Component {
 
     this.props.api.register(username, email, password)
     .then(result => {
-      this.setState({ isLoggedIn: true, isLoading: false, object: result });
+      const errorMessage = this.props.validate(result);
+      if(!errorMessage) {
+        this.setState({ isLoggedIn: true, isLoading: false, object: result });
+      } else {
+        this.showAlert(errorMessage);
+      }
     })
     .catch(err => {
       this.setState({ isLoggedIn: false, isLoading: false });
@@ -123,5 +133,6 @@ Login.propTypes = {
     login: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
     env: PropTypes.func.isRequired
-  })
+  }),
+  validate: PropTypes.func.isRequired
 };
