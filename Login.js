@@ -33,6 +33,7 @@ export default class Login extends Component {
         this._message = JSON.stringify(result);
         this.setState({ isLoggedIn: true, isLoading: false, object: result });
       } else {
+        this.setState({ isLoggedIn: false, isLoading: false });
         this.showAlert(errorMessage);
       }
     })
@@ -51,6 +52,7 @@ export default class Login extends Component {
       if(!errorMessage) {
         this.setState({ isLoggedIn: true, isLoading: false, object: result });
       } else {
+        this.setState({ isLoggedIn: false, isLoading: false });
         this.showAlert(errorMessage);
       }
     })
