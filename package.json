@@ -27,8 +27,6 @@
   },
   "homepage": "https://github.com/NonOpn/react-native-login-lpsfr#readme",
   "dependencies": {
-    "react": "^16.2.0",
-    "react-native": "^0.51.0",
     "react-native-popup": "^0.6.1"
   }
 }
