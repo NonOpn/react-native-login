@@ -114,6 +114,7 @@ export default class AuthScreen extends Component {
         <Opening
         onCreateAccountPress={() => this._setVisibleForm('SIGNUP')}
         onSignInPress={() => this._setVisibleForm('LOGIN')}
+        onLoginLinkedIn={this.props.onLoginLinkedIn}
         />
       )}
       <KeyboardAvoidingView
@@ -125,6 +126,7 @@ export default class AuthScreen extends Component {
         <SignupForm
         ref={(ref) => this.formRef = ref}
         onLoginLinkPress={() => this._setVisibleForm('LOGIN')}
+        onLoginLinkedIn={this.props.onLoginLinkedIn}
         onSignupPress={signup}
         isLoading={isLoading}
         />
@@ -133,6 +135,7 @@ export default class AuthScreen extends Component {
         <LoginForm
         ref={(ref) => this.formRef = ref}
         onSignupLinkPress={() => this._setVisibleForm('SIGNUP')}
+        onLoginLinkedIn={this.props.onLoginLinkedIn}
         onLoginPress={login}
         isLoading={isLoading}
         />

@@ -9,12 +9,28 @@ import metrics from '../../config/metrics'
 export default class Opening extends Component {
   static propTypes = {
     onCreateAccountPress: PropTypes.func.isRequired,
-    onSignInPress: PropTypes.func.isRequired
+    onSignInPress: PropTypes.func.isRequired,
+    onLoginLinkedIn: PropTypes.func
   }
 
   render () {
     return (
       <View style={styles.container}>
+        {
+          this.props.onLoginLinkedIn && <View animation={'zoomIn'} delay={600} duration={400}>
+            <CustomButton
+              text={'Connect with LinkedIn'}
+              onPress={this.props.onLoginLinkedIn}
+              buttonStyle={styles.signInButton}
+              textStyle={styles.createAccountButtonText}
+            />
+            </View>
+            <View style={styles.separatorContainer} animation={'zoomIn'} delay={700} duration={400}>
+              <View style={styles.separatorLine} />
+              <Text style={styles.separatorOr}>{'Or'}</Text>
+              <View style={styles.separatorLine} />
+            </View>
+        }
         <View animation={'zoomIn'} delay={600} duration={400}>
           <CustomButton
             text={'Create Account'}
@@ -23,11 +39,19 @@ export default class Opening extends Component {
             textStyle={styles.createAccountButtonText}
           />
         </View>
-        <View style={styles.separatorContainer} animation={'zoomIn'} delay={700} duration={400}>
-          <View style={styles.separatorLine} />
-          <Text style={styles.separatorOr}>{'Or'}</Text>
-          <View style={styles.separatorLine} />
-        </View>
+        {
+          this.props.onLoginLinkedIn &&
+          <View style={styles.separatorContainerThin} animation={'zoomIn'} delay={700} duration={400}>
+          </View>
+        }
+        {
+          !this.props.onLoginLinkedIn &&
+          <View style={styles.separatorContainer} animation={'zoomIn'} delay={700} duration={400}>
+            <View style={styles.separatorLine} />
+            <Text style={styles.separatorOr}>{'Or'}</Text>
+            <View style={styles.separatorLine} />
+          </View>
+        }
         <View animation={'zoomIn'} delay={800} duration={400}>
           <CustomButton
             text={'Sign In'}
@@ -57,6 +81,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     marginVertical: 20
+  },
+  separatorContainerThin: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical: 4
   },
   separatorLine: {
     flex: 1,

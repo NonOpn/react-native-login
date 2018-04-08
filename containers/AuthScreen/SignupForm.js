@@ -11,7 +11,8 @@ export default class SignupForm extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     onSignupPress: PropTypes.func.isRequired,
-    onLoginLinkPress: PropTypes.func.isRequired
+    onLoginLinkPress: PropTypes.func.isRequired,
+    onLoginLinkedIn: PropTypes.func
   }
 
   state = {
