@@ -11,8 +11,7 @@ export default class LoginForm extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     onLoginPress: PropTypes.func.isRequired,
-    onSignupLinkPress: PropTypes.func.isRequired,
-    onLoginLinkedIn: PropTypes.func
+    onSignupLinkPress: PropTypes.func.isRequired
   }
 
   state = {
@@ -62,6 +61,15 @@ export default class LoginForm extends Component {
             onChangeText={(value) => this.setState({ password: value })}
             isEnabled={!isLoading}
           />
+          {
+            this.props.onLoginLinkedIn && <CustomButton
+              onPress={() => this.props.onLoginLinkedIn()}
+              isLoading={isLoading}
+              buttonStyle={styles.createLinkedInAccount}
+              textStyle={styles.createLinkedInAccountButtonText}
+              text={'Use LinkedIn'}
+            />
+          }
         </View>
         <View style={styles.footer}>
           <View ref={(ref) => this.buttonRef = ref} animation={'bounceIn'} duration={600} delay={400}>
@@ -103,6 +111,13 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: 'white'
+  },
+  createLinkedInAccount: {
+    backgroundColor: '#303F9F'
+  },
+  createLinkedInAccountButtonText: {
+    color: 'white',
+    fontWeight: 'bold'
   },
   loginButtonText: {
     color: '#3E464D',

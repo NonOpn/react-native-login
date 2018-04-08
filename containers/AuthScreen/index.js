@@ -55,6 +55,7 @@ export default class AuthScreen extends Component {
     isLoading: PropTypes.bool.isRequired,
     signup: PropTypes.func.isRequired,
     login: PropTypes.func.isRequired,
+    linkedin: PropTypes.func,
     onLoginAnimationCompleted: PropTypes.func.isRequired // Called at the end of a succesfull login/signup animation
   }
 
@@ -112,9 +113,9 @@ export default class AuthScreen extends Component {
       >{this.props.title}</Text>
       {(!visibleForm && !isLoggedIn) && (
         <Opening
+        onLoginLinkedIn={this.props.linkedin}
         onCreateAccountPress={() => this._setVisibleForm('SIGNUP')}
         onSignInPress={() => this._setVisibleForm('LOGIN')}
-        onLoginLinkedIn={this.props.onLoginLinkedIn}
         />
       )}
       <KeyboardAvoidingView
@@ -125,8 +126,8 @@ export default class AuthScreen extends Component {
       {(visibleForm === 'SIGNUP') && (
         <SignupForm
         ref={(ref) => this.formRef = ref}
+        onLoginLinkedIn={this.props.linkedin}
         onLoginLinkPress={() => this._setVisibleForm('LOGIN')}
-        onLoginLinkedIn={this.props.onLoginLinkedIn}
         onSignupPress={signup}
         isLoading={isLoading}
         />
@@ -134,8 +135,8 @@ export default class AuthScreen extends Component {
       {(visibleForm === 'LOGIN') && (
         <LoginForm
         ref={(ref) => this.formRef = ref}
+        onLoginLinkedIn={this.props.linkedin}
         onSignupLinkPress={() => this._setVisibleForm('SIGNUP')}
-        onLoginLinkedIn={this.props.onLoginLinkedIn}
         onLoginPress={login}
         isLoading={isLoading}
         />

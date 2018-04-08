@@ -25,11 +25,13 @@ export default class Opening extends Component {
               textStyle={styles.createAccountButtonText}
             />
             </View>
-            <View style={styles.separatorContainer} animation={'zoomIn'} delay={700} duration={400}>
-              <View style={styles.separatorLine} />
-              <Text style={styles.separatorOr}>{'Or'}</Text>
-              <View style={styles.separatorLine} />
-            </View>
+        }
+        {
+          this.props.onLoginLinkedIn && <View style={styles.separatorContainer} animation={'zoomIn'} delay={700} duration={400}>
+            <View style={styles.separatorLine} />
+            <Text style={styles.separatorOr}>{'Or'}</Text>
+            <View style={styles.separatorLine} />
+          </View>
         }
         <View animation={'zoomIn'} delay={600} duration={400}>
           <CustomButton

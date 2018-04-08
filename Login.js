@@ -88,11 +88,12 @@ export default class Login extends Component {
     const { custom_styles } = this.props;
 
     return (
-      <View style={[styles.container, custom_styles && custom_styles.container]}>
+      <View style={styles.container}>
       <AuthScreen
       title=""
-      styles={custom_styles}
+      custom_styles={custom_styles}
       source={this.props.source}
+      linkedin={this.props.linkedin}
       login={(u,p) => this._login(u,p)}
       signup={(u,p,f) => this._signup(u,p,f)}
       isLoggedIn={this.state.isLoggedIn}
@@ -139,6 +140,7 @@ Login.propTypes = {
     register: PropTypes.func.isRequired,
     env: PropTypes.func.isRequired
   }),
+  linkedin: PropTypes.func,
   custom_styles: PropTypes.object,
   validate: PropTypes.func.isRequired
 };
