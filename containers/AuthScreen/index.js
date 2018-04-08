@@ -9,7 +9,7 @@ import Opening from './Opening'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
 
-const IMAGE_WIDTH = metrics.DEVICE_WIDTH * 0.8
+const IMAGE_WIDTH = 100
 
 if (Platform.OS === 'android') UIManager.setLayoutAnimationEnabledExperimental(true)
 
