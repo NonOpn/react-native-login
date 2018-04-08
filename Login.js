@@ -85,8 +85,10 @@ export default class Login extends Component {
   * If the user is authenticated (isAppReady) show the HomeScreen, otherwise show the AuthScreen
   */
   render () {
+    const { custom_styles } = this.props;
+
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, custom_styles && custom_styles.container]}>
       <AuthScreen
       title=""
       source={this.props.source}
@@ -136,5 +138,6 @@ Login.propTypes = {
     register: PropTypes.func.isRequired,
     env: PropTypes.func.isRequired
   }),
+  styles: PropTypes.object,
   validate: PropTypes.func.isRequired
 };
