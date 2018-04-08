@@ -91,6 +91,7 @@ export default class Login extends Component {
       <View style={[styles.container, custom_styles && custom_styles.container]}>
       <AuthScreen
       title=""
+      styles={custom_styles}
       source={this.props.source}
       login={(u,p) => this._login(u,p)}
       signup={(u,p,f) => this._signup(u,p,f)}
