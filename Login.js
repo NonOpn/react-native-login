@@ -139,6 +139,6 @@ Login.propTypes = {
     register: PropTypes.func.isRequired,
     env: PropTypes.func.isRequired
   }),
-  styles: PropTypes.object,
+  custom_styles: PropTypes.object,
   validate: PropTypes.func.isRequired
 };
