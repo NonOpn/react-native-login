@@ -33,7 +33,7 @@ export default class SignupForm extends Component {
 
   render () {
     const { email, password, login } = this.state
-    const { isLoading, onLoginLinkPress, onSignupPress } = this.props
+    const { isLoading, onLoginLinkPress, onSignupPress, onCancelPress } = this.props
     const isValid = email !== '' && password !== '' && login !== ''
     return (
       <View style={styles.container}>
