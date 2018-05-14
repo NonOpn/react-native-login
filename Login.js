@@ -98,6 +98,7 @@ export default class Login extends Component {
       signup={(u,p,f) => this._signup(u,p,f)}
       isLoggedIn={this.state.isLoggedIn}
       isLoading={this.state.isLoading}
+      onVisibleForm={this.props.onVisibleForm}
       onLoginAnimationCompleted={() => this._loginComplete()}
       />
       <Popup ref={popup => this.popup = popup }/>
