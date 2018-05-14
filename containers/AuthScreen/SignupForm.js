@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   footer: {
-    height: 100,
     justifyContent: 'center'
   },
   createLinkedInAccount: {
