@@ -11,7 +11,8 @@ export default class SignupForm extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     onSignupPress: PropTypes.func.isRequired,
-    onLoginLinkPress: PropTypes.func.isRequired
+    onLoginLinkPress: PropTypes.func.isRequired,
+    onCancelPress: PropTypes.func.isRequired
   }
 
   state = {
@@ -101,6 +102,16 @@ export default class SignupForm extends Component {
           >
             {'Already have an account?'}
           </Text>
+          <Text
+            ref={(ref) => this.linkRef = ref}
+            style={styles.loginLink}
+            onPress={onCancelPress}
+            animation={'fadeIn'}
+            duration={600}
+            delay={400}
+          >
+            {'Cancel'}
+          </Text>
         </View>
       </View>
     )
@@ -132,6 +143,7 @@ const styles = StyleSheet.create({
     color: '#3E464D',
     fontWeight: 'bold'
   },
+  //loginLink = cancelLink
   loginLink: {
     color: 'rgba(255,255,255,0.6)',
     alignSelf: 'center',

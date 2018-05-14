@@ -11,7 +11,8 @@ export default class LoginForm extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     onLoginPress: PropTypes.func.isRequired,
-    onSignupLinkPress: PropTypes.func.isRequired
+    onSignupLinkPress: PropTypes.func.isRequired,
+    onCancelPress: PropTypes.func.isRequired
   }
 
   state = {
@@ -32,7 +33,7 @@ export default class LoginForm extends Component {
 
   render () {
     const { email, password } = this.state
-    const { isLoading, onSignupLinkPress, onLoginPress } = this.props
+    const { isLoading, onSignupLinkPress, onLoginPress, onCancelPress } = this.props
     const isValid = email !== '' && password !== ''
     return (
       <View style={styles.container}>
@@ -92,6 +93,16 @@ export default class LoginForm extends Component {
           >
             {'Not registered yet?'}
           </Text>
+          <Text
+            ref={(ref) => this.linkRef = ref}
+            style={styles.signupLink}
+            onPress={onCancelPress}
+            animation={'fadeIn'}
+            duration={600}
+            delay={400}
+          >
+            {'Cancel'}
+          </Text>
         </View>
       </View>
     )
@@ -123,6 +134,7 @@ const styles = StyleSheet.create({
     color: '#3E464D',
     fontWeight: 'bold'
   },
+  //signupLink = cancelLink
   signupLink: {
     color: 'rgba(255,255,255,0.6)',
     alignSelf: 'center',

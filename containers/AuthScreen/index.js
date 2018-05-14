@@ -56,6 +56,7 @@ export default class AuthScreen extends Component {
     signup: PropTypes.func.isRequired,
     login: PropTypes.func.isRequired,
     linkedin: PropTypes.func,
+    onVisibleForm: PropTypes.func,
     onLoginAnimationCompleted: PropTypes.func.isRequired // Called at the end of a succesfull login/signup animation
   }
 
@@ -87,7 +88,11 @@ export default class AuthScreen extends Component {
     // 2. Configure a spring animation for the next step
     LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
     // 3. Set the new visible form
-    this.setState({ visibleForm })
+    this.setState({ visibleForm });
+
+    if(this.props.onVisibleForm) {
+      this.props.onVisibleForm(visibleForm);
+    }
   }
 
   render () {
@@ -128,6 +133,7 @@ export default class AuthScreen extends Component {
         ref={(ref) => this.formRef = ref}
         onLoginLinkedIn={this.props.linkedin}
         onLoginLinkPress={() => this._setVisibleForm('LOGIN')}
+        onCancelPress={() => this._setVisibleForm(undefined)}
         onSignupPress={signup}
         isLoading={isLoading}
         />
@@ -137,6 +143,7 @@ export default class AuthScreen extends Component {
         ref={(ref) => this.formRef = ref}
         onLoginLinkedIn={this.props.linkedin}
         onSignupLinkPress={() => this._setVisibleForm('SIGNUP')}
+        onCancelPress={() => this._setVisibleForm(undefined)}
         onLoginPress={login}
         isLoading={isLoading}
         />
